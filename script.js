@@ -58,10 +58,6 @@ function renderGallery() {
         card.className = 'gallery-card';
         card.innerHTML = `
             <img src="${item.image}" alt="${item.title}" class="gallery-image">
-            <div class="gallery-info">
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
-            </div>
         `;
         
         // Adicionar evento de clique na imagem
