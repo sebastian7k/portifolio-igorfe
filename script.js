@@ -2,34 +2,50 @@
 const galleryData = [
     {
         title: "Trabalho 1",
-        description: "Descrição do trabalho",
-        image: "images/trabalho1.jpg"
+        description: "Trabalho 1",
+        image: "assets/Trabalho 1.jpg"
     },
     {
         title: "Trabalho 2",
-        description: "Descrição do trabalho",
-        image: "images/trabalho2.jpg"
+        description: "Trabalho 2",
+        image: "assets/Trabalho 2.jpg"
     },
     {
         title: "Trabalho 3",
-        description: "Descrição do trabalho",
-        image: "images/trabalho3.jpg"
+        description: "Trabalho 3",
+        image: "assets/Trabalho 3.jpg"
     },
     {
         title: "Trabalho 4",
-        description: "Descrição do trabalho",
-        image: "images/trabalho4.jpg"
+        description: "Trabalho 4",
+        image: "assets/Trabalho 4.jpg"
     },
     {
         title: "Trabalho 5",
-        description: "Descrição do trabalho",
-        image: "images/trabalho5.jpg"
+        description: "Trabalho 5",
+        image: "assets/Trabalho 5.jpg"
     },
     {
         title: "Trabalho 6",
-        description: "Descrição do trabalho",
-        image: "images/trabalho6.jpg"
+        description: "Trabalho 6",
+        image: "assets/Trabalho 6.jpg"
+    },
+    {
+        title: "Trabalho 7",
+        description: "Trabalho 7",
+        image: "assets/Trabalho 7.jpg"
+    },
+    {
+        title: "Trabalho 8",
+        description: "Trabalho 8",
+        image: "assets/Trabalho 8.jpg"
+    },
+    {
+        title: "Trabalho 9",
+        description: "Trabalho 9",
+        image: "assets/Trabalho 9.jpg"
     }
+    
 ];
 
 // Renderizar galeria
@@ -58,18 +74,38 @@ function renderGallery() {
     });
 }
 
+// Variável para rastrear o índice atual
+let currentImageIndex = 0;
+
 // Abrir modal com a imagem ampliada
 function openModal(imageSrc) {
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     modalImage.src = imageSrc;
     modal.classList.add('active');
+    
+    // Encontrar o índice da imagem
+    currentImageIndex = galleryData.findIndex(item => item.image === imageSrc);
 }
 
 // Fechar modal
 function closeModal() {
     const modal = document.getElementById('imageModal');
     modal.classList.remove('active');
+}
+
+// Ir para próxima imagem
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % galleryData.length;
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = galleryData[currentImageIndex].image;
+}
+
+// Ir para imagem anterior
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + galleryData.length) % galleryData.length;
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = galleryData[currentImageIndex].image;
 }
 
 // Menu Mobile
@@ -109,29 +145,52 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Escape') {
             closeModal();
         }
+        // Navegação com setas do teclado
+        if (modal.classList.contains('active')) {
+            if (e.key === 'ArrowRight') {
+                nextImage();
+            } else if (e.key === 'ArrowLeft') {
+                prevImage();
+            }
+        }
     });
+
+    // Botões de navegação do modal
+    const modalPrev = document.getElementById('modalPrev');
+    const modalNext = document.getElementById('modalNext');
+    modalPrev.addEventListener('click', prevImage);
+    modalNext.addEventListener('click', nextImage);
 
     // Renderizar galeria
     renderGallery();
 
-    // Formulário de contato
+    // Formulário de contato com Formspree
     const contactForm = document.getElementById('contactForm');
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const inputs = this.querySelectorAll('input, textarea');
-        let formData = {};
+        const formData = new FormData(this);
         
-        inputs.forEach(input => {
-            formData[input.placeholder] = input.value;
+        // Enviar para Formspree
+        fetch('https://formspree.io/f/xzdaeljp', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Mensagem enviada com sucesso!');
+                contactForm.reset();
+            } else {
+                alert('Erro ao enviar. Tente novamente.');
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Erro ao enviar a mensagem.');
         });
-        
-        // Aqui você pode adicionar lógica para enviar os dados
-        console.log('Formulário enviado:', formData);
-        
-        // Mostrar mensagem de sucesso
-        alert('Mensagem enviada com sucesso!');
-        this.reset();
     });
 });
 

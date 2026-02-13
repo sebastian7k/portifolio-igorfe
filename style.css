@@ -377,6 +377,33 @@ body {
     border-radius: 8px;
 }
 
+.modal-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 1001;
+}
+
+.modal-arrow:hover {
+    color: #ccc;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.modal-prev {
+    left: 20px;
+}
+
+.modal-next {
+    right: 20px;
+}
+
 @keyframes fadeInModal {
     from {
         opacity: 0;

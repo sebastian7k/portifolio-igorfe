@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Igor FE</title>
+    <title>Portfólio - Lipe Tattoo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- HEADER & NAVEGAÇÃO -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">IGOR.FE</div>
+            <div class="logo">LIPE TATTOO</div>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -28,7 +28,7 @@
     <!-- HERO SECTION -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">IGOR</h1>
+            <h1 class="hero-title">LIPE TATTOO</h1>
             <p class="hero-subtitle">Criatividade sem limites</p>
             <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
                 Fale Comigo
@@ -78,18 +78,18 @@
                 </div>
                 <div class="contact-item">
                     <h3>Instagram</h3>
-                    <a href="https://instagram.com/seu-usuario" target="_blank">@seu-usuario</a>
+                    <a href="https://www.instagram.com/li.pe.tattoo" target="_blank">@li.pe.tattoo</a>
                 </div>
                 <div class="contact-item">
                     <h3>WhatsApp</h3>
-                    <a href="https://wa.me/5511999999999" target="_blank">(11) 99999-9999</a>
+                    <a href="https://wa.me/557196111375" target="_blank">(71) 9611-1375</a>
                 </div>
             </div>
 
             <form class="contact-form" id="contactForm">
-                <input type="text" placeholder="Seu Nome" required>
-                <input type="email" placeholder="Seu Email" required>
-                <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+                <input type="text" name="nome" placeholder="Seu Nome" required>
+                <input type="email" name="email" placeholder="Seu Email" required>
+                <textarea name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
                 <button type="submit" class="submit-button">Enviar</button>
             </form>
         </div>
@@ -98,12 +98,14 @@
     <!-- MODAL PARA FOTOS AMPLIADAS -->
     <div id="imageModal" class="modal">
         <span class="modal-close">&times;</span>
+        <span class="modal-arrow modal-prev" id="modalPrev">&#10094;</span>
         <img class="modal-image" id="modalImage" src="" alt="">
+        <span class="modal-arrow modal-next" id="modalNext">&#10095;</span>
     </div>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <p>&copy; 2026 Igor FE. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Delane Maia. Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
