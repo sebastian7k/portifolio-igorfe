@@ -2,27 +2,33 @@
 const galleryData = [
     {
         title: "Trabalho 1",
-        description: "Descrição do trabalho"
+        description: "Descrição do trabalho",
+        image: "images/trabalho1.jpg"
     },
     {
         title: "Trabalho 2",
-        description: "Descrição do trabalho"
+        description: "Descrição do trabalho",
+        image: "images/trabalho2.jpg"
     },
     {
         title: "Trabalho 3",
-        description: "Descrição do trabalho"
+        description: "Descrição do trabalho",
+        image: "images/trabalho3.jpg"
     },
     {
         title: "Trabalho 4",
-        description: "Descrição do trabalho"
+        description: "Descrição do trabalho",
+        image: "images/trabalho4.jpg"
     },
     {
         title: "Trabalho 5",
-        description: "Descrição do trabalho"
+        description: "Descrição do trabalho",
+        image: "images/trabalho5.jpg"
     },
     {
         title: "Trabalho 6",
-        description: "Descrição do trabalho"
+        description: "Descrição do trabalho",
+        image: "images/trabalho6.jpg"
     }
 ];
 
@@ -35,16 +41,35 @@ function renderGallery() {
         const card = document.createElement('div');
         card.className = 'gallery-card';
         card.innerHTML = `
-            <div class="gallery-image">
-                Imagem ${index + 1}
-            </div>
+            <img src="${item.image}" alt="${item.title}" class="gallery-image">
             <div class="gallery-info">
                 <h3>${item.title}</h3>
                 <p>${item.description}</p>
             </div>
         `;
+        
+        // Adicionar evento de clique na imagem
+        const img = card.querySelector('.gallery-image');
+        img.addEventListener('click', function() {
+            openModal(this.src);
+        });
+        
         galleryGrid.appendChild(card);
     });
+}
+
+// Abrir modal com a imagem ampliada
+function openModal(imageSrc) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = imageSrc;
+    modal.classList.add('active');
+}
+
+// Fechar modal
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.remove('active');
 }
 
 // Menu Mobile
@@ -52,6 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
     const navLinks = document.querySelectorAll('.nav-link');
+    const modalClose = document.querySelector('.modal-close');
+    const modal = document.getElementById('imageModal');
 
     // Toggle menu
     hamburger.addEventListener('click', function() {
@@ -65,6 +92,23 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
         });
+    });
+
+    // Fechar modal ao clicar no X
+    modalClose.addEventListener('click', closeModal);
+
+    // Fechar modal ao clicar fora da imagem
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Fechar modal com a tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
     });
 
     // Renderizar galeria
