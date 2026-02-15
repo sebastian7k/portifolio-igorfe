@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designs - Lipe Tattoo</title>
+    <link rel="icon" type="image/png" sizes="60x50" href="assets/iconlipe (1).png">
+    <link rel="apple-touch-icon" href="assets/iconlipe (1).png">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Great+Vibes&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">LIPE TATTOO</div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Início</a></li>
+                <li><a href="index.html#gallery" class="nav-link">Galeria</a></li>
+                <li><a href="designs.html" class="nav-link">Designs</a></li>
+                <li><a href="index.html#about" class="nav-link">Sobre</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="gallery designs-section-page">
+        <div class="designs-header">
+            <h2>Designs Disponíveis</h2>
+            <p>Tatuagens prontas para serem feitas</p>
+        </div>
+        <div class="designs-grid" id="designsGrid"></div>
+    </section>
+
+    <div id="designModal" class="modal">
+        <span class="modal-close" id="designModalClose">&times;</span>
+        <span class="modal-arrow modal-prev" id="designModalPrev">&#10094;</span>
+        <div class="design-modal-content">
+            <img class="modal-image" id="designModalImage" src="" alt="">
+            <div class="design-modal-info">
+                <h3 id="designModalTitle">Título</h3>
+                <p id="designModalDesc">Descrição</p>
+                <div class="design-modal-price">R$ <span id="designModalPrice">0</span></div>
+                <button class="design-cart-btn" id="designCartBtn">🛒 Solicitar via WhatsApp</button>
+            </div>
+        </div>
+        <span class="modal-arrow modal-next" id="designModalNext">&#10095;</span>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 by: Sebastian. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

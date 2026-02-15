@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- HEADER & NAVEGAÇÃO -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">LIPE TATTOO</div>
@@ -22,14 +21,13 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Início</a></li>
                 <li><a href="#gallery" class="nav-link">Galeria</a></li>
-                <li><a href="#designs" class="nav-link">Designs</a></li>
+                <li><a href="designs.html" class="nav-link">Designs</a></li>
                 <li><a href="#about" class="nav-link">Sobre</a></li>
                 <li><a href="#contact" class="nav-link">Contato</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1 class="hero-title">LIPE TATTOO</h1>
@@ -40,55 +38,36 @@
         </div>
     </section>
 
-    <!-- GALERIA -->
     <section id="gallery" class="gallery">
         <div class="gallery-header">
             <h2>Galeria</h2>
             <p>Conheça meus trabalhos</p>
         </div>
-        <div class="gallery-grid" id="galleryGrid">
-            <!-- Cards serão inseridos aqui por JavaScript -->
-        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
     </section>
 
-    <!-- PÁGINA DE DESIGNS (OVERLAY) -->
-    <div id="designsPage" class="designs-page">
-        <div class="designs-page-content">
-            <button class="designs-close" id="designsClose">✕</button>
-            <div class="designs-header">
-                <h2>Designs Disponíveis</h2>
-                <p>Tatuagens prontas para serem feitas</p>
-            </div>
-            <div class="designs-grid" id="designsGrid">
-                <!-- Cards serão inseridos aqui por JavaScript -->
-            </div>
-        </div>
-    </div>
-
-    <!-- SOBRE -->
     <section id="about" class="about">
         <div class="about-container">
             <div class="about-text">
                 <h2>Sobre Mim</h2>
                 <p>
-                    Olá! Sou um artista criativo dedicado à excelência em meu trabalho. 
-                    Com anos de experiência, tenho desenvolvido um estilo único que combina 
+                    Olá! Sou um artista criativo dedicado à excelência em meu trabalho.
+                    Com anos de experiência, tenho desenvolvido um estilo único que combina
                     técnica, criatividade e atenção aos detalhes.
                 </p>
                 <p>
-                    Cada projeto é uma oportunidade de criar algo extraordinário e deixar 
+                    Cada projeto é uma oportunidade de criar algo extraordinário e deixar
                     uma marca duradoura. Minha paixão é transformar ideias em realidade.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- CONTATO -->
     <section id="contact" class="contact">
         <div class="contact-container">
             <h2>Entre em Contato</h2>
             <p>Interesse em trabalhar junto? Vamos conversar!</p>
-            
+
             <div class="contact-options">
                 <div class="contact-item">
                     <h3>Email</h3>
@@ -113,33 +92,13 @@
         </div>
     </section>
 
-    <!-- MODAL PARA FOTOS AMPLIADAS -->
     <div id="imageModal" class="modal">
-        <span class="modal-close">&times;</span>
+        <span class="modal-close" id="imageModalClose">&times;</span>
         <span class="modal-arrow modal-prev" id="modalPrev">&#10094;</span>
         <img class="modal-image" id="modalImage" src="" alt="">
         <span class="modal-arrow modal-next" id="modalNext">&#10095;</span>
     </div>
 
-    <!-- MODAL PARA DESIGNS -->
-    <div id="designModal" class="modal">
-        <span class="modal-close" id="designModalClose">&times;</span>
-        <span class="modal-arrow modal-prev" id="designModalPrev">&#10094;</span>
-        <div class="design-modal-content">
-            <img class="modal-image" id="designModalImage" src="" alt="">
-            <div class="design-modal-info">
-                <h3 id="designModalTitle">Título</h3>
-                <p id="designModalDesc">Descrição</p>
-                <div class="design-modal-price">R$ <span id="designModalPrice">0</span></div>
-                <button class="design-cart-btn" id="designCartBtn">
-                    🛒 Solicitar via WhatsApp
-                </button>
-            </div>
-        </div>
-        <span class="modal-arrow modal-next" id="designModalNext">&#10095;</span>
-    </div>
-
-    <!-- FOOTER -->
     <footer class="footer">
         <p>&copy; 2026 by: Sebastian. Todos os direitos reservados.</p>
     </footer>
