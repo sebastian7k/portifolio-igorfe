@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #333;
     line-height: 1.6;
     background-color: #fff;
@@ -39,6 +39,8 @@ body {
     font-weight: bold;
     color: #fff;
     letter-spacing: 2px;
+    font-family: 'IM Fell English', serif;
+    font-size: 1.8rem;
 }
 
 .nav-menu {
@@ -97,6 +99,7 @@ body {
     letter-spacing: 4px;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'IM Fell English', serif;
 }
 
 .hero-subtitle {
@@ -104,6 +107,9 @@ body {
     letter-spacing: 2px;
     margin-bottom: 2rem;
     color: #ccc;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+    letter-spacing: 0px;
 }
 
 .cta-button {
@@ -144,6 +150,7 @@ body {
     font-weight: bold;
     letter-spacing: 2px;
     margin-bottom: 0.5rem;
+    font-family: 'Cinzel', serif;
 }
 
 .gallery-header p {
@@ -194,8 +201,214 @@ body {
 }
 
 .gallery-info p {
+/* ===== GALERIA (PÁGINA OVERLAY) ===== */
+/* ===== GALERIA ===== */
+.gallery {
+    padding: 4rem 2rem;
+    background-color: #f5f5f5;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.gallery-header h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    font-family: 'IM Fell English', serif;
+}
+
+.gallery-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.gallery-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, #ddd, #999);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 1rem;
+    object-fit: cover;
+}
+
+/* ===== DESIGNS DISPONÍVEIS (PÁGINA OVERLAY) ===== */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    overflow-y: auto;
+}
+
+.designs-page.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+.designs-page-content {
+    background-color: #fff;
+    width: 95%;
+    max-width: 1200px;
+    border-radius: 15px;
+    padding: 3rem;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(60px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.designs-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+    z-index: 2001;
+}
+
+.designs-close:hover {
+    color: #000;
+}
+
+.designs-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.designs-header h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    font-family: 'IM Fell English', serif;
+}
+
+.designs-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.designs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.design-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.design-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.design-image {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 1rem;
+    object-fit: cover;
+}
+
+.design-info {
+    padding: 1.5rem;
+}
+
+.design-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.design-info p {
     color: #666;
     font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.design-price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #000;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.design-view-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.design-view-btn:hover {
+    background-color: #333;
 }
 
 /* ===== SOBRE ===== */
@@ -217,6 +430,7 @@ body {
     letter-spacing: 2px;
     margin-bottom: 1.5rem;
     text-align: center;
+    font-family: 'Cinzel', serif;
 }
 
 .about-text p {
@@ -245,6 +459,7 @@ body {
     letter-spacing: 2px;
     margin-bottom: 0.5rem;
     text-align: center;
+    font-family: 'Cinzel', serif;
 }
 
 .contact-container > p {
@@ -422,6 +637,77 @@ body {
         transform: scale(1);
         opacity: 1;
     }
+}
+
+/* ===== MODAL DE DESIGNS ===== */
+#designModal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#designModal.active {
+    display: flex;
+}
+
+.design-modal-content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    max-width: 900px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+#designModalImage {
+    max-width: 400px;
+    max-height: 500px;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.design-modal-info {
+    flex: 1;
+}
+
+.design-modal-info h3 {
+    font-size: 1.8rem;
+    font-family: 'IM Fell English', serif;
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+.design-modal-info p {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.design-modal-price {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 2rem;
+}
+
+.design-cart-btn {
+    background-color: #25D366;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-decoration: none;
+}
+
+.design-cart-btn:hover {
+    background-color: #1fa952;
 }
 
 /* ===== ANIMAÇÕES ===== */
