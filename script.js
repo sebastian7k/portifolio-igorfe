@@ -24,6 +24,32 @@ const designsData = [
 let currentImageIndex = 0;
 let currentDesignIndex = 0;
 
+// EmailJS placeholder values to detect non-configured setup
+const EMAILJS_PLACEHOLDERS = {
+    publicKey: 'SEU_PUBLIC_KEY',
+    serviceId: 'SEU_SERVICE_ID',
+    templateId: 'SEU_TEMPLATE_ID'
+};
+
+function getEmailJsConfig(form) {
+    return {
+        publicKey: (form.dataset.emailjsPublicKey || '').trim(),
+        serviceId: (form.dataset.emailjsServiceId || '').trim(),
+        templateId: (form.dataset.emailjsTemplateId || '').trim()
+    };
+}
+
+function isEmailJsConfigValid(config) {
+    return (
+        config.publicKey &&
+        config.serviceId &&
+        config.templateId &&
+        config.publicKey !== EMAILJS_PLACEHOLDERS.publicKey &&
+        config.serviceId !== EMAILJS_PLACEHOLDERS.serviceId &&
+        config.templateId !== EMAILJS_PLACEHOLDERS.templateId
+    );
+}
+
 function renderGallery() {
     const galleryGrid = document.getElementById('galleryGrid');
     if (!galleryGrid) return;
@@ -220,26 +246,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const defaultButtonText = submitButton ? submitButton.textContent : '';
+        const emailJsConfig = getEmailJsConfig(contactForm);
+
+        if (window.emailjs && emailJsConfig.publicKey) {
+            emailjs.init({ publicKey: emailJsConfig.publicKey });
+        }
+
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            const formData = new FormData(this);
 
-            fetch('https://formspree.io/f/xzdaeljp', {
-                method: 'POST',
-                body: formData,
-                headers: { Accept: 'application/json' }
-            })
-                .then((response) => {
-                    if (response.ok) {
-                        alert('Mensagem enviada com sucesso!');
-                        contactForm.reset();
-                    } else {
-                        alert('Erro ao enviar. Tente novamente.');
-                    }
+            if (!window.emailjs) {
+                alert('EmailJS não carregou. Verifique sua conexão.');
+                return;
+            }
+
+            if (!isEmailJsConfigValid(emailJsConfig)) {
+                alert('Configure as chaves do EmailJS no formulÃ¡rio (index.html) antes de enviar.');
+                return;
+            }
+
+            const payload = {
+                from_name: contactForm.nome.value,
+                reply_to: contactForm.email.value,
+                message: contactForm.mensagem.value
+            };
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Enviando...';
+            }
+
+            emailjs
+                .send(emailJsConfig.serviceId, emailJsConfig.templateId, payload)
+                .then(() => {
+                    alert('Mensagem enviada com sucesso!');
+                    contactForm.reset();
                 })
                 .catch((error) => {
-                    console.error('Erro:', error);
-                    alert('Erro ao enviar a mensagem.');
+                    console.error('Erro EmailJS:', error);
+                    alert('Erro ao enviar. Tente novamente.');
+                })
+                .finally(() => {
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.textContent = defaultButtonText;
+                    }
                 });
         });
     }

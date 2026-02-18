@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Lipe Tattoo</title>
+    <title>PortfÃ³lio - Lipe Tattoo</title>
     <link rel="icon" type="image/png" sizes="60x50" href="assets/iconlipe (1).png">
     <link rel="apple-touch-icon" href="assets/iconlipe (1).png">
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Great+Vibes&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
                 <span></span>
             </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#home" class="nav-link">InÃ­cio</a></li>
                 <li><a href="#gallery" class="nav-link">Galeria</a></li>
                 <li><a href="designs.html" class="nav-link">Designs</a></li>
                 <li><a href="#about" class="nav-link">Sobre</a></li>
@@ -41,7 +41,7 @@
     <section id="gallery" class="gallery">
         <div class="gallery-header">
             <h2>Galeria</h2>
-            <p>Conheça meus trabalhos</p>
+            <p>ConheÃ§a meus trabalhos</p>
         </div>
         <div class="gallery-grid" id="galleryGrid"></div>
     </section>
@@ -51,13 +51,13 @@
             <div class="about-text">
                 <h2>Sobre Mim</h2>
                 <p>
-                    Olá! Sou um artista criativo dedicado à excelência em meu trabalho.
-                    Com anos de experiência, tenho desenvolvido um estilo único que combina
-                    técnica, criatividade e atenção aos detalhes.
+                    OlÃ¡! Sou um artista criativo dedicado Ã  excelÃªncia em meu trabalho.
+                    Com anos de experiÃªncia, tenho desenvolvido um estilo Ãºnico que combina
+                    tÃ©cnica, criatividade e atenÃ§Ã£o aos detalhes.
                 </p>
                 <p>
-                    Cada projeto é uma oportunidade de criar algo extraordinário e deixar
-                    uma marca duradoura. Minha paixão é transformar ideias em realidade.
+                    Cada projeto Ã© uma oportunidade de criar algo extraordinÃ¡rio e deixar
+                    uma marca duradoura. Minha paixÃ£o Ã© transformar ideias em realidade.
                 </p>
             </div>
         </div>
@@ -83,7 +83,7 @@
                 </div>
             </div>
 
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" data-emailjs-public-key="SEU_PUBLIC_KEY" data-emailjs-service-id="SEU_SERVICE_ID" data-emailjs-template-id="SEU_TEMPLATE_ID">
                 <input type="text" name="nome" placeholder="Seu Nome" required>
                 <input type="email" name="email" placeholder="Seu Email" required>
                 <textarea name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
@@ -103,6 +103,8 @@
         <p>&copy; 2026 by: Sebastian. Todos os direitos reservados.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
+
