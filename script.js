@@ -175,6 +175,18 @@ document.addEventListener('DOMContentLoaded', function () {
             hamburger.classList.toggle('active');
         });
     }
+    // Fecha o menu hambúrguer ao clicar fora dele
+document.addEventListener('click', function(event) {
+    if (navMenu && navMenu.classList.contains('active')) {
+        const isClickInsideMenu = navMenu.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+        
+        if (!isClickInsideMenu && !isClickOnHamburger) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    }
+});
 
     navLinks.forEach((link) => {
         link.addEventListener('click', function () {
