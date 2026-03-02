@@ -1,0 +1,136 @@
+/*RESET DO NAVEGADOR*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', Arial, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #fff;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #8a2be2;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+}
+
+header h1 {
+    font-family: 'Bangers', cursive;
+    color: #fff;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px #8a2be2;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: #00ffff;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-family: 'Bangers', cursive;
+    color: #8a2be2;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    text-shadow: 0 0 8px #00ffff;
+}
+
+.categoria {
+    margin-bottom: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border: 2px solid #8a2be2;
+    border-radius: 10px;
+}
+
+.categoria h3 {
+    font-family: 'Bangers', cursive;
+    color: #00ffff;
+    margin-bottom: 15px;
+}
+
+.categoria ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.categoria li {
+    background-color: #111;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #b69cce;
+    border-radius: 0 8px 8px 0;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+.categoria li:hover {
+    background-color: #222;
+    border-left-color: #00ffff;
+    transform: translateX(5px);
+    box-shadow: 0 0 10px #00ffff;
+}
+.categoria li img {
+    max-width: 80px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #8a2be2;
+}
+.categoria strong {
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: #000;
+    color: #555;
+    border-top: 2px solid #8a2be2;
+}

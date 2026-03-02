@@ -1,112 +1,44 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lipe Tattoo</title>
-    <link rel="icon" type="image/png" sizes="60x50" href="assets/iconlipe (1).png">
-    <link rel="apple-touch-icon" href="assets/iconlipe (1).png">
-    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Great+Vibes&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Hamburgueria do Z - home</title>
+    <!-- fonte estilo graffiti / trap -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">LT</div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Ini­cio</a></li>
-                <li><a href="#gallery" class="nav-link">Galeria</a></li>
-                <li><a href="designs.html" class="nav-link">Designs</a></li>
-                <li><a href="#about" class="nav-link">Sobre</a></li>
-                <li><a href="#contact" class="nav-link">Contato</a></li>
+    <h1>🍔 Trap Burguer</h1>
+    <h2>Qualidade no seu ouvido e paladar</h2>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cardapio.html">Cardápio</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </header>
+    <main>
+        <section class="banner">
+            <img src="assets/home.page.jpg" alt="Hamburgueria Trap" class="banner-img">
+            <h2>O melhor hambúrguer artesanal da região</h2>
+            <p>feito na brasa, com ingredientes selecionados e preparado com carinho</p>
+        </section>
+        <section class="trap-references">
+            <h3>Vibes do Trap</h3>
+            <p>Referências dos artistas que inspiram nossa batida:</p>
+            <ul>
+                <li>Travis Scott</li>
+                <li>Drake</li>
+                <li>Future</li>
+                <li>Matuê</li>
+                <li>Pk</li>
+                <li>Bk'</li>
             </ul>
-        </div>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">LIPE</h1>
-            <h1 class="hero-title">TATTOO</h1>
-            <p class="hero-subtitle">Criatividade sem limites</p>
-            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-                Fale Comigo
-            </button>
-            <img src="assets/gif centro2.gif" alt="Detalhe animado" class="hero-center-gif">
-        </div>
-    </section>
-
-    <section id="gallery" class="gallery">
-        <div class="gallery-header">
-            <h2>Galeria</h2>
-            <p>Conheça meus trabalhos</p>
-        </div>
-        <div class="gallery-grid" id="galleryGrid"></div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="about-container">
-            <div class="about-text">
-                <h2>Sobre Mim</h2>
-                <p>
-                    Ola! Sou um artista criativo dedicado a  excelencia em meu trabalho.
-                    Com anos de experiencia, tenho desenvolvido um estilo unico que combina
-                    tecnica, criatividade e atenção aos detalhes.
-                </p>
-                <p>
-                    Cada projeto é uma oportunidade de criar algo extraordinario e deixar
-                    uma marca duradoura. Minha paixão é  transformar ideias em realidade.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="contact-container">
-            <h2>Entre em Contato</h2>
-            <p>Interesse em trabalhar junto? Vamos conversar!</p>
-
-            <div class="contact-options">
-                <div class="contact-item">
-                    <h3>Email</h3>
-                    <a href="mailto:seu-email@example.com">contactlipettoo@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <h3>Instagram</h3>
-                    <a href="https://www.instagram.com/li.pe.tattoo" target="_blank">@li.pe.tattoo</a>
-                </div>
-                <div class="contact-item">
-                    <h3>WhatsApp</h3>
-                    <a href="https://wa.me/557196111375" target="_blank">(71) 9611-1375</a>
-                </div>
-            </div>
-
-            <form class="contact-form" id="contactForm" data-emailjs-public-key="SEU_PUBLIC_KEY" data-emailjs-service-id="SEU_SERVICE_ID" data-emailjs-template-id="SEU_TEMPLATE_ID">
-                <input type="text" name="nome" placeholder="Seu Nome" required>
-                <input type="email" name="email" placeholder="Seu Email" required>
-                <textarea name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
-                <button type="submit" class="submit-button">Enviar</button>
-            </form>
-        </div>
-    </section>
-
-    <div id="imageModal" class="modal">
-        <span class="modal-close" id="imageModalClose">&times;</span>
-        <span class="modal-arrow modal-prev" id="modalPrev">&#10094;</span>
-        <img class="modal-image" id="modalImage" src="" alt="">
-        <span class="modal-arrow modal-next" id="modalNext">&#10095;</span>
-    </div>
-
-    <footer class="footer">
-        <p>&copy; 2026 by: Sebastian. Todos os direitos reservados.</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="script.js"></script>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Hamburgueria do Zé. Todos os direitos reservados.</p>
+    </footer> 
 </body>
 </html>
-
